@@ -91,14 +91,20 @@ lms-webapp/
 
 ## Local Development Setup
 
-### 1. Install Dependencies
+### 1. Clone the Repository
 
 ```bash
-cd lms-webapp
+git clone <your-repo-url>
+cd lms/lms-webapp
+```
+
+### 2. Install Dependencies
+
+```bash
 npm install
 ```
 
-### 2. Create Environment File
+### 3. Create Environment File
 
 Create `.env.local` in the `lms-webapp/` directory:
 
@@ -106,7 +112,7 @@ Create `.env.local` in the `lms-webapp/` directory:
 NEXT_PUBLIC_API_URL=http://localhost:5000/api
 ```
 
-### 3. Start Development Server
+### 4. Start Development Server
 
 ```bash
 npm run dev

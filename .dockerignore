@@ -1,13 +1,60 @@
-node_modules 
-dist 
-.git 
-.gitignore 
-.env 
-.env.* 
-*.log 
-*.md 
-.DS_Store 
-.vscode 
-.idea 
-coverage 
-drizzle
+# ============================================================
+# .dockerignore  —  files Docker should NOT copy into the image
+# ============================================================
+# Think of this like .gitignore, but for `docker build`.
+# Whatever you list here is skipped when the Dockerfile does `COPY . .`
+# That makes builds faster, images smaller, and keeps secrets out.
+# See dockerignore-guide.md for a full explanation.
+# ============================================================
+
+# Git history is huge and is not needed to run the app
+.git
+.gitignore
+
+# Dependencies — Docker will run `npm ci` and install a fresh copy
+node_modules
+
+# Local Next.js build — we rebuild inside the container with `npm run build`
+.next
+out
+build
+dist
+
+# Environment files may contain passwords / API keys. Never copy them in.
+# Pass values with `docker build --build-arg` or `docker run -e` instead.
+.env
+.env.*
+!.env.example
+
+# Documentation is for humans, not for the running app
+*.md
+LICENSE*
+
+# Editor / OS junk
+.vscode
+.idea
+.DS_Store
+*.swp
+*.swo
+
+# Logs and test output
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage
+
+# TypeScript cache
+*.tsbuildinfo
+next-env.d.ts
+
+# Docker files themselves do not need to live inside the image
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# Tooling folders that are not part of the running website
+.cursor
+.github
+AGENTS.md
+CLAUDE.md

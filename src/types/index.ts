@@ -100,3 +100,8 @@ export interface AdminEnrollment {
   courseTitle: string;
   createdAt?: string;
 }
+
+export const enum UserRole {
+  STUDENT = "student",
+  ADMIN = "admin",
+}
